@@ -14,34 +14,34 @@ read -p "Please select your Desktop Environment(XFCE, KDE, GNOME, MATE, Cinnamon
 if [ $de == "XFCE" ]; then
 	pkg install xfce lightdm lightdm-gtk-greeter firefox
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
-	echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-	echo 'sysrc lightdm_enable="YES"' >> /etc/rc.conf
+	sysrc dbus_enable="YES"
+	sysrc lightdm_enable="YES"
 elif [ $de == "KDE" ]; then
 	pkg install kde sddm firefox
-	echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-	echo 'sysrc sddm_enable="YES"' >> /etc/rc.conf
+	sysrc dbus_enable="YES"
+	sysrc sddm_enable="YES"
 	read -p "Your default keyboard language will be english. If you want to change it please enter the language. (For exp. for english please enter en_US): " $kboardlang
 	sysrc sddm_lang="$kboardlang"
 elif [ $de == "GNOME" ]; then
 	pkg install gnome firefox
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
-	echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-        echo 'sysrc gdm_enable="YES"' >> /etc/rc.conf
+	sysrc dbus_enable="YES"
+        sysrc gdm_enable="YES"
 elif [ $de == "MATE" ]; then
 	pkg install mate lightdm lightdm-gtk-greeter firefox
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
-        echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-	echo 'sysrc lightdm_enable="YES"' >> /etc/rc.conf
+        sysrc dbus_enable="YES"
+	sysrc lightdm_enable="YES"
 elif [ $de == "Cinnamon" ]; then
 	pkg install cinnamon lightdm lightdm-gtk-greeter firefox
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
-        echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-        echo 'sysrc lightdm_enable="YES"' >> /etc/rc.conf
+        sysrc dbus_enable="YES"
+        sysrc lightdm_enable="YES"
 elif [ $de == "LXQT" ]; then
 	pkg install lxqt sddm firefox
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
-        echo 'sysrc dbus_enable="YES"' >> /etc/rc.conf
-	echo 'sysrc sddm_enable="YES"' >> /etc/rc.conf
+        sysrc dbus_enable="YES"
+	sysrc sddm_enable="YES"
 	read -p "Your default keyboard language will be english. If you want to change it please enter the language. (For exp. for english please enter en_US.) :" $kboardlang
         sysrc sddm_lang="$kboardlang"
 else
