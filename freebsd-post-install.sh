@@ -1,16 +1,12 @@
 #!/bin/sh
 uname=""
 a=""
-b=""
 de=""
 kboardlang=""
 read -p "Please enter your username: " uname
-pkg install xorg vim neovim emacs libreoffice sudo
+pkg install xorg vim neovim emacs libreoffice sudo neofetch
 echo 'snd_driver_load="YES"' >> /etc/rc.conf
 beep
-echo 'sysrc linux_enable="YES"' >> /etc/rc.conf
-service linux start
-read -p "You should set up userland for Linux yourself. Enter to continue." b
 pw groupmod video -m $uname
 pw groupmod video -m root
 read -p "You should set up graphic drivers yourself. Enter to continue." a
