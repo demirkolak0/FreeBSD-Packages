@@ -4,8 +4,9 @@ a=""
 de=""
 kboardlang=""
 read -p "Please enter your username: " uname
-pkg install -y vim neovim emacs libreoffice sudo neofetch
-pkg install -y xorg
+sysrc linux_enable="YES"
+service linux start
+pkg install -y vim neovim emacs libreoffice sudo fastfetch xorg firefox wifibox linux_base-c7
 echo 'snd_driver_load="YES"' >> /etc/rc.conf
 beep
 pw groupmod video -m $uname
