@@ -6,7 +6,7 @@ kboardlang=""
 read -p "Please enter your username: " uname
 sysrc linux_enable="YES"
 service linux start
-pkg install -y vim libreoffice doas fastfetch xorg firefox wifibox linux_base-c7 automount e2fsprogs xfsprogs exfat-utils fusefs-exfat fusefs-ntfs fusefs-hfsfuse fusefs-lkl fusefs-simple-mtpfs
+pkg install -y vim zsh libreoffice doas fastfetch xorg firefox wifibox linux_base-c7 automount e2fsprogs xfsprogs exfat-utils fusefs-exfat fusefs-ntfs fusefs-hfsfuse fusefs-lkl fusefs-simple-mtpfs
 echo 'snd_driver_load="YES"' >> /etc/rc.conf
 beep
 pw groupmod video -m $uname
