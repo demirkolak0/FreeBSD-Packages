@@ -6,7 +6,7 @@ kboardlang=""
 read -p "Please enter your username: " uname
 sysrc linux_enable="YES"
 service linux start
-pkg install -y vim neovim emacs libreoffice sudo fastfetch xorg firefox wifibox linux_base-c7 automount e2fsprogs xfsprogs exfat-utils fusefs-exfat fusefs-ntfs fusefs-hfsfuse fusefs-lkl fusefs-simple-mtpfs
+pkg install -y vim libreoffice doas fastfetch xorg firefox wifibox linux_base-c7 automount e2fsprogs xfsprogs exfat-utils fusefs-exfat fusefs-ntfs fusefs-hfsfuse fusefs-lkl fusefs-simple-mtpfs
 echo 'snd_driver_load="YES"' >> /etc/rc.conf
 beep
 pw groupmod video -m $uname
@@ -23,7 +23,7 @@ elif [ $de == "KDE" ]; then
 	sysrc dbus_enable="YES"
 	sysrc sddm_enable="YES"
 	read -p "Your default keyboard language will be english. If you want to change it please enter the language. (For exp. for english please enter en_US): " $kboardlang
-	sysrc sddm_lang="$kboardlang"
+	sysrc sddm_lang=$kboardlang
 elif [ $de == "GNOME" ]; then
 	pkg install -y gnome
 	echo "proc                    /proc           procfs  rw              0       0" >> /etc/fstab
@@ -45,7 +45,7 @@ elif [ $de == "LXQT" ]; then
         sysrc dbus_enable="YES"
 	sysrc sddm_enable="YES"
 	read -p "Your default keyboard language will be english. If you want to change it please enter the language. (For exp. for english please enter en_US.) :" $kboardlang
-        sysrc sddm_lang="$kboardlang"
+        sysrc sddm_lang=$kboardlang
 else
 	echo "You entered a wrong name. There will be no Desktop Environments."
 fi
