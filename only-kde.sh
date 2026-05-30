@@ -6,6 +6,9 @@ echo 'snd_driver_load="YES"' >> /etc/rc.conf
 beep
 pw groupmod video -m root
 pkg install -y kde sddm
+pw groupadd seatd
+pw groupmod seatd -m root
+pw groupmod seatd -m demir
 sysrc dbus_enable="YES"
 sysrc seatd_enable="YES"
 sysrc sddm_enable="YES"
